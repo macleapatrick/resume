@@ -109,14 +109,18 @@ def sidebar_section(title, y_pos, icon_char=None):
     return y_pos
 
 
-def sidebar_contact_item(label, y_pos, icon_char):
+def sidebar_contact_item(label, y_pos, icon_char, url=None):
     c.setFillColor(SIDEBAR_ACCENT)
     c.setFont("Helvetica", 8)
     c.drawString(sx + 0.04 * inch, y_pos, icon_char)
     c.setFillColor(SIDEBAR_TEXT)
-    c.setFont("Helvetica", 7.5)
-    c.drawString(sx + 0.2 * inch, y_pos, label)
-    y_pos -= 0.19 * inch
+    c.setFont("Helvetica", 8.5)
+    text_x = sx + 0.2 * inch
+    c.drawString(text_x, y_pos, label)
+    if url:
+        tw = c.stringWidth(label, "Helvetica", 8.5)
+        c.linkURL(url, (text_x, y_pos - 2, text_x + tw, y_pos + 10), relative=0)
+    y_pos -= 0.21 * inch
     return y_pos
 
 
@@ -128,8 +132,8 @@ def sidebar_skill_category(cat_name, skills_list, y_pos):
     style = ParagraphStyle(
         'skill',
         fontName='Helvetica',
-        fontSize=7,
-        leading=10,
+        fontSize=8,
+        leading=11,
         textColor=SIDEBAR_TEXT,
     )
     text = ", ".join(skills_list)
@@ -148,8 +152,8 @@ y = sidebar_section("Contact", y, icon_char="@")
 y = sidebar_contact_item("macleapatrick@gmail.com", y, "\u2709")
 y = sidebar_contact_item("(781) 361-4045", y, "\u260E")
 y = sidebar_contact_item("Boston, MA", y, "\u25C8")
-y = sidebar_contact_item("LinkedIn", y, "\u25B6")
-y = sidebar_contact_item("GitHub", y, "\u25B6")
+y = sidebar_contact_item("LinkedIn", y, "\u25B6", url="https://www.linkedin.com/in/patrick-maclea-5460b098/")
+y = sidebar_contact_item("GitHub", y, "\u25B6", url="https://github.com/macleapatrick")
 y -= SIDEBAR_GAP
 
 # --- Education ---
@@ -202,8 +206,8 @@ y = sidebar_section("Interests", y, icon_char="*")
 interests_style = ParagraphStyle(
     'interests',
     fontName='Helvetica',
-    fontSize=7,
-    leading=10,
+    fontSize=8,
+    leading=11,
     textColor=SIDEBAR_TEXT,
 )
 interests_text = "Skiing, Markets & Investing, Mountain Biking, Guitar"
@@ -244,8 +248,8 @@ def draw_bullet(text, y_pos, indent=0.08 * inch):
     style = ParagraphStyle(
         'bullet',
         fontName='Helvetica',
-        fontSize=7.8,
-        leading=10.5,
+        fontSize=9,
+        leading=12,
         textColor=MAIN_TEXT,
     )
     p = Paragraph(text, style)
@@ -265,8 +269,8 @@ y = main_section("Professional Summary", y, icon_char="P")
 summary_style = ParagraphStyle(
     'summary',
     fontName='Helvetica',
-    fontSize=8.2,
-    leading=12,
+    fontSize=9.5,
+    leading=13.5,
     textColor=MAIN_TEXT,
 )
 summary = (
@@ -279,7 +283,7 @@ summary = (
 p = Paragraph(summary, summary_style)
 pw, ph = p.wrap(MAIN_W, 200)
 p.drawOn(c, mx, y - ph + 9)
-y = y - ph - 0.08 * inch
+y = y - ph - 0.25 * inch
 
 # --- Experience ---
 y = main_section("Experience", y, icon_char="W")

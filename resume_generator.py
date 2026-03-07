@@ -174,14 +174,14 @@ y -= SIDEBAR_GAP + 0.14 * inch
 y = sidebar_section("Skills", y, icon_char="S")
 
 y = sidebar_skill_category("Machine Learning & AI", [
-    "Python", "PyTorch", "TensorFlow", "Scikit-Learn",
+    "PyTorch", "TensorFlow", "Scikit-Learn",
     "MLflow", "LangGraph", "LLM Pipelines",
-    "Knowledge Graphs", "Deep Learning",
-    "Feature Engineering", "Model Evaluation"
+    "Knowledge Graphs", "Deep Learning", "NLP", "RAG",
+    "Embeddings", "XGBoost", "Feature Engineering", "Model Evaluation"
 ], y)
 
 y = sidebar_skill_category("Data & Systems", [
-    "SQL", "MongoDB", "Kafka",
+    "SQL", "Pandas", "NumPy", "MongoDB", "Kafka",
     "ETL Pipelines", "Streaming Data Systems"
 ], y)
 
@@ -274,11 +274,11 @@ summary_style = ParagraphStyle(
     textColor=MAIN_TEXT,
 )
 summary = (
-    "Senior Data Scientist with experience building production ML and LLM systems "
+    "Senior Data Scientist with experience building production ML, NLP, and LLM systems "
     "and leading automation software at Tesla\u2019s EV manufacturing lines. Combines "
-    "industrial systems expertise with modern machine learning to solve large-scale, "
-    "real-world problems. Long-term focused on applying AI to transform and fully "
-    "automate manufacturing."
+    "industrial systems expertise with modern machine learning and statistical modeling "
+    "to deliver measurable business impact. Long-term focused on applying AI to "
+    "transform and fully automate manufacturing."
 )
 p = Paragraph(summary, summary_style)
 pw, ph = p.wrap(MAIN_W, 200)
@@ -336,10 +336,10 @@ y = draw_job(
     "Jan 2025 \u2013 Present",
     [
         "Promoted twice within first year, from intern to senior data scientist.",
-        "Built ML-driven synonymization of software product entities in the knowledge graph, increasing client coverage of software vulnerability-to-watchlist connections by 10%.",
-        "Architected a multi-stage ML + LLM pipeline for domain ownership resolution using large-scale internet metadata and active-learning training loops, expanding TPI coverage of domain ownership by 10% and growing.",
+        "Built NLP-driven synonymization of software product entities in the knowledge graph using text classification and embedding models, increasing client coverage of software vulnerability-to-watchlist connections by 10%.",
+        "Architected a multi-stage NLP and ML pipeline for domain ownership resolution using transformer models, large-scale internet metadata, and active-learning training loops, expanding TPI coverage of domain ownership by 10% and growing.",
         "Built end-to-end entity resolution systems combining knowledge-graph ontologies, LLM-generated training data, and ML scoring to link entities across Recorded Future and partner platforms \u2014 automatically resolving ~75% of entities from the partner dataset to Recorded Future\u2019s intelligence graph at 98% precision, enabling cross-platform data and frontend integration.",
-        "Developed internal data and ML platform tooling (ETL pipelines, MLflow integration, LangGraph orchestration) that standardized how the team builds and ships ML and LLM systems.",
+        "Developed internal data and ML platform tooling (ETL pipelines, MLflow integration, LangGraph orchestration, CI/CD workflows) that standardized how the team builds and ships ML and LLM systems.",
     ],
     y,
     previous="Data Engineer, Data Science Intern",
@@ -352,11 +352,11 @@ y = draw_job(
     "Tesla",
     "2020 \u2013 Dec 2023",
     [
-        "Led software, controls, and data systems for fully automated EV battery manufacturing equipment.",
+        "Led a cross-functional team managing software, controls, and data systems for fully automated EV battery manufacturing equipment.",
         "Improved manufacturing cycle time by 20% (+1,000 packs/week) through software-driven process optimizations.",
         "Designed conveyance optimization algorithms, reducing product starvation to the next production zone from 5% to 2%.",
-        "Drove software-driven improvements that helped increase equipment availability from ~80% to 90% across the production zone.",
-        "Developed Python-based APIs, real-time dashboards, and anomaly detection systems that connected equipment data to MES and monitoring platforms \u2014 enabling bottleneck analysis, quality issue identification, and predictive maintenance across the production zone.",
+        "Drove data-driven process improvements using statistical analysis that increased equipment availability from ~80% to 90% across the production zone.",
+        "Developed Python REST APIs, real-time data visualization dashboards, and anomaly detection systems that connected equipment data to MES and monitoring platforms \u2014 enabling bottleneck analysis, quality issue identification, and predictive maintenance across the production zone.",
         "Led Beckhoff PLC development standards and mentored engineers and technicians on troubleshooting across the production line.",
     ],
     y,
